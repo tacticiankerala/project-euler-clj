@@ -7,7 +7,7 @@
 
 (defn primes
   ([primes-so-far num]
-              (if (some #(factor? num %1) primes-so-far)
+              (if (some #(factor? num %) primes-so-far)
                 (recur primes-so-far (+ num 2))
                 (cons num (lazy-seq (primes (cons num primes-so-far) (+ num 2))))))
              ([] (cons 2 (primes (list 2) 3))))
